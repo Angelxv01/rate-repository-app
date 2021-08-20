@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
   buttonLike: {
-    width: "25%",
+    alignSelf: "flex-start",
     backgroundColor: theme.colors.primary,
     borderRadius: 8,
     padding: 8,
