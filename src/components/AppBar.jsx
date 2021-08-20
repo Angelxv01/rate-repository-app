@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: theme.colors.dark
+    backgroundColor: theme.colors.dark,
+    paddingHorizontal: 10
   }
 });
 
