@@ -1,11 +1,14 @@
 import React from "react";
 import { View, Pressable, Text, StyleSheet } from "react-native";
-import FormikTextInput from "./components/FormikTextInput";
-import theme from "./theme";
+import FormikTextInput from "./FormikTextInput";
+import theme from "../theme";
 
 const styles = StyleSheet.create({
+  container: {
+    margin: 5
+  },
   button: {
-    margin: 5,
+    marginVertical: 5,
     borderColor: theme.colors.primary,
     borderWidth: 2,
     borderRadius: 4,
@@ -18,7 +21,7 @@ const styles = StyleSheet.create({
     color: theme.colors.primary
   },
   input: {
-    margin: 5,
+    marginVertical: 5,
     padding: 5,
     fontSize: 16,
     borderWidth: 1,
@@ -29,7 +32,7 @@ const styles = StyleSheet.create({
 
 const SignInForm = ({ onSubmit }) => {
   return (
-    <View>
+    <View style={styles.container}>
       <FormikTextInput
         name="username"
         placeholder="Username"

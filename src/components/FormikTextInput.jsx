@@ -7,7 +7,9 @@ import Text from "./styledComponents/Text";
 
 const styles = StyleSheet.create({
   errorText: {
-    marginTop: 5
+    marginTop: 5,
+    color: "#f55",
+    fontWeight: "bold"
   }
 });
 
