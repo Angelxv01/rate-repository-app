@@ -4,10 +4,11 @@ import { Link } from "react-router-native";
 
 const styles = StyleSheet.create({
   text: {
+    textAlign: "center",
     color: "#fff",
     fontWeight: "bold",
     paddingVertical: 10,
-    marginRight: 15,
+    paddingHorizontal: 10,
     fontSize: 18
   }
 });
