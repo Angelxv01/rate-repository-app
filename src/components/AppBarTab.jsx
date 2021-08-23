@@ -1,15 +1,15 @@
 import React from "react";
-import { Text, Pressable, StyleSheet } from "react-native";
+import { Pressable, StyleSheet } from "react-native";
 import { Link } from "react-router-native";
+import theme from "../theme";
+import Text from "./styledComponents/Text";
 
 const styles = StyleSheet.create({
   text: {
     textAlign: "center",
-    color: "#fff",
-    fontWeight: "bold",
     paddingVertical: 10,
     paddingHorizontal: 10,
-    fontSize: 18
+    color: theme.colors.white
   }
 });
 
@@ -17,7 +17,9 @@ const AppBarTab = ({ text, path }) => {
   return (
     <Pressable>
       <Link to={path}>
-        <Text style={styles.text}>{text}</Text>
+        <Text style={styles.text} type="primary">
+          {text}
+        </Text>
       </Link>
     </Pressable>
   );
