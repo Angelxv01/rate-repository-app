@@ -14,7 +14,8 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     textAlign: "center",
-    fontWeight: "bold"
+    fontWeight: "bold",
+    color: theme.colors.primary
   },
   input: {
     margin: 5,
