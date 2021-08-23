@@ -5,7 +5,8 @@ import theme from "../theme";
 
 const styles = StyleSheet.create({
   container: {
-    margin: 5
+    backgroundColor: "white",
+    padding: 5
   },
   button: {
     marginVertical: 5,

@@ -11,7 +11,7 @@ const RespositoryItem = ({ item }) => {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <View style={[styles.row]}>
         <Image style={[styles.img]} source={{ uri: item.ownerAvatarUrl }} />
         <View
@@ -28,7 +28,7 @@ const RespositoryItem = ({ item }) => {
       <View style={styles.buttonLike}>
         <Text style={styles.whiteText}>{item.language}</Text>
       </View>
-      <View style={styles.row}>
+      <View style={styles.display}>
         <View style={styles.column}>
           <Text type="primary">{flatNumber(item.stargazersCount)}</Text>
           <Text type="secondary">Stars</Text>
@@ -51,6 +51,10 @@ const RespositoryItem = ({ item }) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "white",
+    padding: 10
+  },
   img: {
     height: 50,
     width: 50
@@ -80,6 +84,10 @@ const styles = StyleSheet.create({
   whiteText: {
     color: theme.colors.white,
     fontWeight: "bold"
+  },
+  display: {
+    flexDirection: "row",
+    justifyContent: "space-evenly"
   }
 });
 

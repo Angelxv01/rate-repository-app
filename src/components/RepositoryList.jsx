@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
     height: 10
   },
   container: {
-    paddingHorizontal: 10,
     marginVertical: 10
   }
 });

@@ -1,15 +1,22 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { View } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { Route, Switch, Redirect } from "react-router-native";
 
 import RepositoryList from "./RepositoryList";
 import SignIn from "./SignIn";
 import AppBar from "./AppBar";
+import theme from "../theme";
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: theme.colors.lightGray
+  }
+});
 
 const Main = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <AppBar />
       <StatusBar />
       <Switch>
