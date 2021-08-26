@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FlatList, View, StyleSheet } from "react-native";
 import RepositoryItem from "./RepositoryItem";
 
@@ -9,7 +9,9 @@ const styles = StyleSheet.create({
     height: 10
   },
   container: {
-    marginVertical: 10
+    display: "flex",
+    flexGrow: 1,
+    flexShrink: 1
   }
 });
 

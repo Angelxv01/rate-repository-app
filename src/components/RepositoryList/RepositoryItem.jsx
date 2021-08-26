@@ -14,13 +14,7 @@ const RespositoryItem = ({ item }) => {
     <View style={styles.container}>
       <View style={[styles.row]}>
         <Image style={[styles.img]} source={{ uri: item.ownerAvatarUrl }} />
-        <View
-          style={[
-            styles.column,
-            styles.flexStart,
-            { flexGrow: 1, marginLeft: 10 }
-          ]}
-        >
+        <View style={[styles.column, styles.flexStart, styles.info]}>
           <Text type="primary">{item.fullName}</Text>
           <Text type="secondary">{item.description}</Text>
         </View>
@@ -88,6 +82,10 @@ const styles = StyleSheet.create({
   display: {
     flexDirection: "row",
     justifyContent: "space-evenly"
+  },
+  info: {
+    marginHorizontal: 10,
+    flex: 1
   }
 });
 

@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { Route, Switch, Redirect } from "react-router-native";
@@ -10,24 +9,27 @@ import theme from "./theme";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: theme.colors.lightGray
+    backgroundColor: theme.colors.lightGray,
+    flexGrow: 1,
+    flexShrink: 1
   }
 });
 
 const Main = () => {
   return (
-    <View style={styles.container}>
+    <View>
       <AppBar />
-      <StatusBar />
-      <Switch>
-        <Route path="/signin">
-          <SignIn />
-        </Route>
-        <Route path="/" exact>
-          <RepositoryList />
-        </Route>
-        <Redirect to="/" />
-      </Switch>
+      <View style={styles.container}>
+        <Switch>
+          <Route path="/signin">
+            <SignIn />
+          </Route>
+          <Route path="/" exact>
+            <RepositoryList />
+          </Route>
+          <Redirect to="/" />
+        </Switch>
+      </View>
     </View>
   );
 };
