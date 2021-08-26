@@ -12,8 +12,8 @@ const RespositoryItem = ({ item }) => {
 
   return (
     <View style={styles.container}>
-      <View style={[styles.row]}>
-        <Image style={[styles.img]} source={{ uri: item.ownerAvatarUrl }} />
+      <View style={styles.row}>
+        <Image style={styles.img} source={{ uri: item.ownerAvatarUrl }} />
         <View style={[styles.column, styles.flexStart, styles.info]}>
           <Text type="primary">{item.fullName}</Text>
           <Text type="secondary">{item.description}</Text>

@@ -7,11 +7,6 @@ import useRepository from "../../hooks/useRepositories";
 const styles = StyleSheet.create({
   separator: {
     height: 10
-  },
-  container: {
-    display: "flex",
-    flexGrow: 1,
-    flexShrink: 1
   }
 });
 
@@ -70,20 +65,18 @@ const RepositoryList = () => {
       <RepositoryItem item={item} />
     </View>
   );
-  const response = useRepository();
-  const repositoryNodes = response.repositories
-    ? response.repositories.edges.map((obj) => obj.node)
+  const { repositories } = useRepository();
+  const repositoryNodes = repositories
+    ? repositories.edges.map((obj) => obj.node)
     : [];
 
   return (
-    <View style={styles.container}>
-      <FlatList
-        data={repositoryNodes}
-        ItemSeparatorComponent={ItemSeparator}
-        renderItem={render}
-        keyExtractor={(obj) => obj.id}
-      />
-    </View>
+    <FlatList
+      data={repositoryNodes}
+      ItemSeparatorComponent={ItemSeparator}
+      renderItem={render}
+      keyExtractor={(obj) => obj.id}
+    />
   );
 };
 

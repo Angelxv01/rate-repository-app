@@ -17,19 +17,17 @@ const styles = StyleSheet.create({
 
 const Main = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <AppBar />
-      <View style={styles.container}>
-        <Switch>
-          <Route path="/signin">
-            <SignIn />
-          </Route>
-          <Route path="/" exact>
-            <RepositoryList />
-          </Route>
-          <Redirect to="/" />
-        </Switch>
-      </View>
+      <Switch>
+        <Route path="/signin">
+          <SignIn />
+        </Route>
+        <Route path="/" exact>
+          <RepositoryList />
+        </Route>
+        <Redirect to="/" />
+      </Switch>
     </View>
   );
 };
