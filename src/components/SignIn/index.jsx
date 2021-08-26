@@ -28,7 +28,7 @@ const SignIn = () => {
 
     try {
       const { data } = await signIn(username, password);
-      console.log(data);
+      console.log(data.authorize.accessToken);
     } catch (err) {
       console.error(err);
     }
