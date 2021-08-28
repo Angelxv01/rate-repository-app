@@ -1,10 +1,10 @@
 import React from "react";
-import { View, StyleSheet, ScrollView, Pressable } from "react-native";
+import { View, StyleSheet, ScrollView } from "react-native";
 import Constants from "expo-constants";
 
 import theme from "../../theme";
-import Text from "../styledComponents/Text";
-import AppBarTab from "./AppBarTab";
+import AppBarLink from "./AppBarLink";
+import AppBarAction from "./AppBarAction";
 import { useApolloClient, useQuery } from "@apollo/client";
 import { AUTHORIZED_USER } from "../../graphql/queries";
 import useAuthStorage from "../../hooks/useAuthStorage";
@@ -19,8 +19,7 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: "center",
-    padding: 10,
-    color: theme.colors.white
+    padding: 10
   }
 });
 
@@ -36,24 +35,17 @@ const AppBar = () => {
     history.push("/signin");
   };
 
-  if (response.loading) {
-    return null;
-  }
-
-  const logged = response.data.authorizedUser;
-
   return (
     <View style={styles.container}>
       <ScrollView horizontal>
-        <AppBarTab text="Repositories" path="/" />
-        {logged ? (
-          <Pressable onPress={logout}>
-            <Text style={styles.text} type="primary">
-              Log out
-            </Text>
-          </Pressable>
+        <AppBarLink text="Repositories" path="/" />
+        {response.data?.authorizedUser?.username ? (
+          <>
+            <AppBarLink text={response.data?.authorizedUser?.username} />
+            <AppBarAction text="Log out" onPress={logout} />
+          </>
         ) : (
-          <AppBarTab text="Sign in" path="/signin" />
+          <AppBarLink text="Sign in" path="/signin" />
         )}
       </ScrollView>
     </View>
