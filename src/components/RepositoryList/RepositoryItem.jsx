@@ -15,28 +15,42 @@ const RespositoryItem = ({ item }) => {
       <View style={styles.row}>
         <Image style={styles.img} source={{ uri: item.ownerAvatarUrl }} />
         <View style={[styles.column, styles.flexStart, styles.info]}>
-          <Text type="primary">{item.fullName}</Text>
-          <Text type="secondary">{item.description}</Text>
+          <Text type="primary" testID={item.id}>
+            {item.fullName}
+          </Text>
+          <Text type="secondary" testID={item.id}>
+            {item.description}
+          </Text>
         </View>
       </View>
       <View style={styles.buttonLike}>
-        <Text style={styles.whiteText}>{item.language}</Text>
+        <Text testID={item.id} style={styles.whiteText}>
+          {item.language}
+        </Text>
       </View>
       <View style={styles.display}>
         <View style={styles.column}>
-          <Text type="primary">{flatNumber(item.stargazersCount)}</Text>
+          <Text type="primary" testID={item.id}>
+            {flatNumber(item.stargazersCount)}
+          </Text>
           <Text type="secondary">Stars</Text>
         </View>
         <View style={styles.column}>
-          <Text type="primary">{flatNumber(item.forksCount)}</Text>
+          <Text type="primary" testID={item.id}>
+            {flatNumber(item.forksCount)}
+          </Text>
           <Text type="secondary">Forks</Text>
         </View>
         <View style={styles.column}>
-          <Text type="primary">{flatNumber(item.reviewCount)}</Text>
+          <Text type="primary" testID={item.id}>
+            {flatNumber(item.reviewCount)}
+          </Text>
           <Text type="secondary">Reviews</Text>
         </View>
         <View style={styles.column}>
-          <Text type="primary">{flatNumber(item.ratingAverage)}</Text>
+          <Text type="primary" testID={item.id}>
+            {flatNumber(item.ratingAverage)}
+          </Text>
           <Text type="secondary">Rating</Text>
         </View>
       </View>
