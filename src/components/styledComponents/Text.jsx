@@ -36,6 +36,17 @@ const styles = StyleSheet.create({
   },
   fontWeightBold: {
     fontWeight: theme.fontWeights.bold
+  },
+  h3: {
+    fontWeight: "bold",
+    fontSize: theme.fontSizes.h3,
+    marginBottom: 5
+  },
+  light: {
+    color: theme.colors.gray
+  },
+  strong: {
+    fontWeight: "bold"
   }
 });
 
@@ -46,9 +57,16 @@ const Text = ({ type, style, color, fontWeight, fontSize, ...props }) => {
     type === "secondary" && styles.secondaryText,
     color === "textSecondary" && styles.colorTextSecondary,
     color === "primary" && styles.colorPrimary,
-    color === "white" && styles.colorWhite,
     fontSize === "subheading" && styles.fontSizeSubheading,
     fontWeight === "bold" && styles.fontWeightBold,
+
+    // actually organized
+
+    // type h1...h3, strong, italic, underlined, etc...
+    type === "strong" && styles.strong,
+    type === "h3" && styles.h3,
+    type === "light" && styles.light,
+    color === "white" && styles.colorWhite,
     style
   ];
   return <NativeText style={textStyles} {...props} />;

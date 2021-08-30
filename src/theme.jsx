@@ -12,8 +12,10 @@ const theme = {
     primary: "#0366d6"
   },
   fontSizes: {
-    body: 14,
-    subheading: 16
+    body: 16,
+    h3: 18,
+    h2: 24,
+    h1: 32
   },
   fonts: {
     main: "System",
