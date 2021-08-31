@@ -2,6 +2,7 @@ import React from "react";
 import { View, Image, StyleSheet } from "react-native";
 import theme from "../../theme";
 import Text from "../styledComponents/Text";
+import * as Linking from "expo-linking";
 
 const RespositoryItem = ({ item, detail }) => {
   const flatNumber = (number) => {
@@ -11,56 +12,6 @@ const RespositoryItem = ({ item, detail }) => {
   };
 
   return (
-    // <View style={styles.container}>
-    //   <View style={styles.row}>
-    //     <Image style={styles.img} source={{ uri: item.ownerAvatarUrl }} />
-    //     <View style={[styles.column, styles.flexStart, styles.info]}>
-    //       <Text type="primary" testID={item.id}>
-    //         {item.fullName}
-    //       </Text>
-    //       <Text type="secondary" testID={item.id}>
-    //         {item.description}
-    //       </Text>
-    //     </View>
-    //   </View>
-    //   <View style={styles.buttonLike}>
-    //     <Text testID={item.id} style={styles.whiteText}>
-    //       {item.language}
-    //     </Text>
-    //   </View>
-    //   <View style={styles.display}>
-    //     <View style={styles.column}>
-    //       <Text type="primary" testID={item.id}>
-    //         {flatNumber(item.stargazersCount)}
-    //       </Text>
-    //       <Text type="secondary">Stars</Text>
-    //     </View>
-    //     <View style={styles.column}>
-    //       <Text type="primary" testID={item.id}>
-    //         {flatNumber(item.forksCount)}
-    //       </Text>
-    //       <Text type="secondary">Forks</Text>
-    //     </View>
-    //     <View style={styles.column}>
-    //       <Text type="primary" testID={item.id}>
-    //         {flatNumber(item.reviewCount)}
-    //       </Text>
-    //       <Text type="secondary">Reviews</Text>
-    //     </View>
-    //     <View style={styles.column}>
-    //       <Text type="primary" testID={item.id}>
-    //         {flatNumber(item.ratingAverage)}
-    //       </Text>
-    //       <Text type="secondary">Rating</Text>
-    //     </View>
-    //   </View>
-    //   <Pressable style={styles.buttonLike}>
-    //     <Text fontSize="subheading" fontWeight="bold">
-    //       Open in GitHub
-    //     </Text>
-    //   </Pressable>
-    // </View>
-
     <View style={styles.container}>
       <View style={[styles.row, styles.presentation]}>
         <Image style={styles.image} source={{ uri: item.ownerAvatarUrl }} />
@@ -104,7 +55,11 @@ const RespositoryItem = ({ item, detail }) => {
         </View>
       </View>
       {detail && (
-        <Text type="strong" style={styles.button}>
+        <Text
+          type="strong"
+          style={styles.button}
+          onPress={() => Linking.openURL(item.url)}
+        >
           See on GitHub
         </Text>
       )}
@@ -156,49 +111,6 @@ const styles = StyleSheet.create({
     color: theme.colors.primary,
     marginVertical: 5
   }
-
-  // container: {
-  //   backgroundColor: "white",
-  //   padding: 10
-  // },
-  // img: {
-  //   height: 50,
-  //   width: 50
-  // },
-  // row: {
-  //   flexDirection: "row",
-  //   justifyContent: "space-between"
-  // },
-  // column: {
-  //   flexDirection: "column",
-  //   justifyContent: "center",
-  //   alignItems: "center"
-  // },
-  // flexStart: {
-  //   alignItems: "flex-start"
-  // },
-  // justifyContent: {
-  //   justifyContent: "space-between"
-  // },
-  // buttonLike: {
-  //   alignSelf: "flex-start",
-  //   backgroundColor: theme.colors.primary,
-  //   borderRadius: 8,
-  //   padding: 8,
-  //   marginVertical: 5
-  // },
-  // whiteText: {
-  //   color: theme.colors.white,
-  //   fontWeight: "bold"
-  // },
-  // display: {
-  //   flexDirection: "row",
-  //   justifyContent: "space-evenly"
-  // },
-  // info: {
-  //   marginHorizontal: 10,
-  //   flex: 1
-  // }
 });
 
 export default RespositoryItem;

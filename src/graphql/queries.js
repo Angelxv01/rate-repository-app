@@ -21,3 +21,13 @@ export const AUTHORIZED_USER = gql`
     }
   }
 `;
+
+export const REPOSITORY = gql`
+  ${REPOSITORY_INFO}
+  query repository($id: ID!) {
+    repository(id: $id) {
+      ...RepositoryInfo
+      url
+    }
+  }
+`;

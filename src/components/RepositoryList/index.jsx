@@ -1,8 +1,9 @@
 import React from "react";
-import { FlatList, View, StyleSheet } from "react-native";
+import { FlatList, View, StyleSheet, Pressable } from "react-native";
 import RepositoryItem from "./RepositoryItem";
 
 import useRepository from "../../hooks/useRepositories";
+import { useHistory } from "react-router-native";
 
 const styles = StyleSheet.create({
   separator: {
@@ -13,10 +14,11 @@ const styles = StyleSheet.create({
 const ItemSeparator = () => <View style={styles.separator} />;
 
 const RepositoryList = () => {
+  const history = useHistory();
   const render = ({ item }) => (
-    <View>
+    <Pressable onPress={() => history.push(`/repository/${item.id}`)}>
       <RepositoryItem item={item} />
-    </View>
+    </Pressable>
   );
   const { repositories } = useRepository();
   const repositoryNodes = repositories
