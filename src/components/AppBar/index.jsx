@@ -47,6 +47,9 @@ const AppBar = () => {
         ) : (
           <AppBarLink text="Sign in" path="/signin" />
         )}
+        {response.data?.authorizedUser?.username && (
+          <AppBarLink text="Create Review" path="/review" />
+        )}
       </ScrollView>
     </View>
   );
