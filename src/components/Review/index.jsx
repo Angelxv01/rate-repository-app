@@ -34,7 +34,7 @@ const index = () => {
     try {
       await mutate({ variables: { ...values, rating: Number(values.rating) } });
     } catch (err) {
-      return history.push("/");
+      console.log(err);
     }
     return history.push(
       `/repository/${values.ownerName}.${values.repositoryName}`

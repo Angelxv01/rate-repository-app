@@ -50,6 +50,9 @@ const AppBar = () => {
         {response.data?.authorizedUser?.username && (
           <AppBarLink text="Create Review" path="/review" />
         )}
+        {!response.data?.authorizedUser?.username && (
+          <AppBarLink text="Sign Up" path="/signup" />
+        )}
       </ScrollView>
     </View>
   );

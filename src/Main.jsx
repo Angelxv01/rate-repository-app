@@ -7,6 +7,7 @@ import SingleRepository from "./components/SingleRepository";
 import SignIn from "./components/SignIn";
 import AppBar from "./components/AppBar";
 import Review from "./components/Review";
+import SignUp from "./components/SignUp";
 import theme from "./theme";
 
 const styles = StyleSheet.create({
@@ -27,6 +28,9 @@ const Main = () => {
         </Route>
         <Route path="/signin">
           <SignIn />
+        </Route>
+        <Route path="/signup">
+          <SignUp />
         </Route>
         <Route path="/" exact>
           <RepositoryList />
