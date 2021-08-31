@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, View } from "react-native";
+import { FlatList } from "react-native";
 import { render } from "@testing-library/react-native";
 import RepositoryItem from "../../components/RepositoryList/RepositoryItem";
 
@@ -18,7 +18,7 @@ const RepositoryListContainer = ({ repositories }) => {
   );
 };
 
-describe.only("RepositoryList", () => {
+describe("RepositoryList", () => {
   describe("RepositoryListContainer", () => {
     it("renders repository information correctly", () => {
       const repositories = {
