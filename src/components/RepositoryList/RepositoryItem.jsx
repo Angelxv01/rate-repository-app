@@ -24,7 +24,12 @@ const RespositoryItem = ({ item, detail }) => {
           </Text>
         </View>
       </View>
-      <Text style={styles.callAction} color="white" testID={item.id}>
+      <Text
+        style={styles.callAction}
+        color="primary"
+        type="strong"
+        testID={item.id}
+      >
         {item.language}
       </Text>
 
@@ -97,8 +102,9 @@ const styles = StyleSheet.create({
   },
   callAction: {
     alignSelf: "flex-start",
-    backgroundColor: theme.colors.primary,
     borderRadius: 8,
+    borderWidth: 2,
+    borderColor: theme.colors.primary,
     padding: 8,
     marginVertical: 5
   },
