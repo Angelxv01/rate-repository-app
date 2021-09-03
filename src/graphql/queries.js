@@ -3,7 +3,11 @@ import { REPOSITORY_INFO, REVIEWS_INFO } from "./fragments";
 
 export const GET_REPOSITORY_INFO = gql`
   ${REPOSITORY_INFO}
-  query ($order: AllRepositoriesOrderBy, $by: OrderDirection, $find: String) {
+  query getRepositoryInfo(
+    $order: AllRepositoriesOrderBy
+    $by: OrderDirection
+    $find: String
+  ) {
     repositories(orderBy: $order, orderDirection: $by, searchKeyword: $find) {
       edges {
         node {
@@ -15,7 +19,7 @@ export const GET_REPOSITORY_INFO = gql`
 `;
 
 export const AUTHORIZED_USER = gql`
-  query {
+  query authorizedUser {
     authorizedUser {
       username
     }
