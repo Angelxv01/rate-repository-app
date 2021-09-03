@@ -35,27 +35,22 @@ const AppBar = () => {
     history.push("/signin");
   };
 
+  const username = response.data?.authorizedUser?.username;
+
   return (
     <View style={styles.container}>
       <ScrollView horizontal>
         <AppBarLink text="Repositories" path="/" />
-        {response.data?.authorizedUser?.username ? (
+        {username ? (
           <>
-            <AppBarLink
-              text={response.data?.authorizedUser?.username}
-              path="/myReviews"
-            />
+            <AppBarLink text="My Reviews" path="/myReviews" />
             <AppBarAction text="Log out" onPress={logout} />
           </>
         ) : (
           <AppBarLink text="Sign in" path="/signin" />
         )}
-        {response.data?.authorizedUser?.username && (
-          <AppBarLink text="Create Review" path="/review" />
-        )}
-        {!response.data?.authorizedUser?.username && (
-          <AppBarLink text="Sign Up" path="/signup" />
-        )}
+        {username && <AppBarLink text="Create Review" path="/review" />}
+        {!username && <AppBarLink text="Sign Up" path="/signup" />}
       </ScrollView>
     </View>
   );

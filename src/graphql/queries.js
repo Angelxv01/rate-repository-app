@@ -43,6 +43,9 @@ export const AUTHORIZED_USER = gql`
         edges {
           node {
             ...ReviewsInfo
+            repository {
+              id
+            }
           }
         }
         pageInfo {
