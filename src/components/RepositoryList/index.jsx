@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useRepository from "../../hooks/useRepositories";
+import useRepositories from "../../hooks/useRepositories";
 import { useHistory } from "react-router-native";
 import { useDebounce } from "use-debounce";
 import { RepositoryListContainer } from "./RepositoryListContainer";
@@ -12,7 +12,7 @@ const RepositoryList = () => {
   const [find, setFind] = useState("");
   const [dFind] = useDebounce(find, 500);
 
-  const { repositories, fetchMore } = useRepository({
+  const { repositories, fetchMore } = useRepositories({
     ...sort,
     find: dFind,
     first: 8

@@ -41,15 +41,19 @@ export const AUTHORIZED_USER = gql`
 export const REPOSITORY = gql`
   ${REPOSITORY_INFO}
   ${REVIEWS_INFO}
-  query repository($id: ID!) {
+  query repository($id: ID!, $first: Int, $after: String) {
     repository(id: $id) {
       ...RepositoryInfo
       url
-      reviews {
+      reviews(first: $first, after: $after) {
         edges {
           node {
             ...ReviewsInfo
           }
+        }
+        pageInfo {
+          hasNextPage
+          endCursor
         }
       }
     }
