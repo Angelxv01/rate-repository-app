@@ -53,6 +53,9 @@ const AppBar = () => {
         {!response.data?.authorizedUser?.username && (
           <AppBarLink text="Sign Up" path="/signup" />
         )}
+        {response.data?.authorizedUser?.username && (
+          <AppBarLink text="My Reviews" path="/myReviews" />
+        )}
       </ScrollView>
     </View>
   );

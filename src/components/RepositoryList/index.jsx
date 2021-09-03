@@ -22,7 +22,7 @@ const RepositoryList = () => {
     ? repositories.edges.map((obj) => obj.node)
     : [];
 
-  const onEndReach = () => fetchMore();
+  // const onEndReach = () => ();
 
   return (
     <RepositoryListContainer
@@ -33,7 +33,7 @@ const RepositoryList = () => {
       visible={visible}
       history={history}
       repositories={repositoryNodes}
-      onEndReach={onEndReach}
+      onEndReach={fetchMore}
     />
   );
 };

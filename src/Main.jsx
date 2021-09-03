@@ -8,15 +8,8 @@ import SignIn from "./components/SignIn";
 import AppBar from "./components/AppBar";
 import Review from "./components/Review";
 import SignUp from "./components/SignUp";
+import UserReviews from "./components/UserReviews";
 import theme from "./theme";
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: theme.colors.lightGray,
-    flexGrow: 1,
-    flexShrink: 1
-  }
-});
 
 const Main = () => {
   return (
@@ -32,11 +25,14 @@ const Main = () => {
         <Route path="/signup">
           <SignUp />
         </Route>
-        <Route path="/" exact>
-          <RepositoryList />
-        </Route>
         <Route path="/repository/:id" exact>
           <SingleRepository />
+        </Route>
+        <Route path="/myReviews">
+          <UserReviews />
+        </Route>
+        <Route path="/" exact>
+          <RepositoryList />
         </Route>
         <Redirect to="/" />
       </Switch>
@@ -45,3 +41,11 @@ const Main = () => {
 };
 
 export default Main;
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: theme.colors.lightGray,
+    flexGrow: 1,
+    flexShrink: 1
+  }
+});
