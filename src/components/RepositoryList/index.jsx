@@ -12,11 +12,17 @@ const RepositoryList = () => {
   const [find, setFind] = useState("");
   const [dFind] = useDebounce(find, 500);
 
-  const { repositories } = useRepository({ ...sort, find: dFind });
+  const { repositories, fetchMore } = useRepository({
+    ...sort,
+    find: dFind,
+    first: 8
+  });
 
   const repositoryNodes = repositories
     ? repositories.edges.map((obj) => obj.node)
     : [];
+
+  const onEndReach = () => fetchMore();
 
   return (
     <RepositoryListContainer
@@ -27,6 +33,7 @@ const RepositoryList = () => {
       visible={visible}
       history={history}
       repositories={repositoryNodes}
+      onEndReach={onEndReach}
     />
   );
 };

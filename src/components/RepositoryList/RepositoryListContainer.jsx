@@ -34,14 +34,17 @@ export class RepositoryListContainer extends React.Component {
   render() {
     return (
       <Provider>
-        <FlatList
-          style={{ paddingVertical: 5 }}
-          ListHeaderComponent={this.renderHeader}
-          data={this.props.repositories}
-          renderItem={this.renderItem}
-          ItemSeparatorComponent={this.itemSeparator}
-          keyExtractor={(obj) => obj.id}
-        />
+        <View style={{ flexShrink: 1, paddingVertical: 5 }}>
+          <FlatList
+            ListHeaderComponent={this.renderHeader}
+            data={this.props.repositories}
+            renderItem={this.renderItem}
+            ItemSeparatorComponent={this.itemSeparator}
+            keyExtractor={(obj) => obj.id}
+            onEndReachedThreshold={0.5}
+            onEndReached={this.props.onEndReach}
+          />
+        </View>
       </Provider>
     );
   }
